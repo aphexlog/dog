@@ -10,6 +10,11 @@
       "StackName": "amplify-dog-dev-144331",
       "StackId": "arn:aws:cloudformation:us-west-2:764114738171:stack/amplify-dog-dev-144331/05f20480-ad3d-11ec-a373-027c55e3209f",
       "AmplifyAppId": "d24iheozi3sdcz"
+    },
+    "categories": {
+      "auth": {
+        "dog5ab40a70": {}
+      }
     }
   }
 }
