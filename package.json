@@ -2,9 +2,11 @@
   "name": "dog",
   "version": "1.0.0",
   "description": "",
-  "main": "main.js",
+  "main": "build/main.js",
   "scripts": {
-    "test": "tsc main.ts && node main.js"
+    "build": "tsc --outDir build",
+    "start": "node build/main.js",
+    "test": "npm run build && npm run start"
   },
   "repository": {
     "type": "git",
