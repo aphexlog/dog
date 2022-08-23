@@ -1,0 +1,19 @@
+{
+  "name": "dog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "tsc main.ts && node main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aphexlog/dog.git"
+  },
+  "author": "Billy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aphexlog/dog/issues"
+  },
+  "homepage": "https://github.com/aphexlog/dog#readme"
+}
