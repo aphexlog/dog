@@ -9,7 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     # reset beta branch to master
     steps:
-      - name: reset
+      - name: Checkout Beta
         uses: actions/checkout@v3
-      - run: git checkout beta
-      - run: git reset --hard main
+        with:
+          branch: beta
+          force: 1
