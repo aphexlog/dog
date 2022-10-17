@@ -16,3 +16,4 @@ jobs:
           force: 1
       - run: git reset --hard master
       - run: git push
+      - run: git branch
