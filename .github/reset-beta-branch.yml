@@ -1,15 +1,16 @@
 # reset beta branch to master
-name: Reset Beta Branch
+name: Reset Branch to Master
 
 
 on: [workflow_dispatch]
 jobs:
   resetBeta:
-    name: Reset Beta Branch
+    name: Reset Branch to Master
     runs-on: ubuntu-latest
     # reset beta branch to master
     steps:
-      - name: reset
+      - name: Checkout Beta
         uses: actions/checkout@v3
-      - run: git checkout beta
-      - run: git reset --hard main
+      - run: git reset --hard master
+      - run: git push
+      - run: git branch
