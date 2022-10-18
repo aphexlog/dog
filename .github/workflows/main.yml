@@ -12,8 +12,8 @@ jobs:
         uses: actions/checkout@v1
       - name: reset branch to master
         run: |
-          git config user.name "$GITHUB_ACTOR"
-          git config user.email "<>"
+          git config user.name "aaron.west"
+          git config user.email "aphexlog@gmail.com"
           git checkout beta
           git branch
           git fetch --all
