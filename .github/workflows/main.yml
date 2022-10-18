@@ -16,8 +16,4 @@ jobs:
           git branch
           git fetch --all
           git reset --hard origin/master
-      - name: push to beta
-        uses: ad-m/github-push-action@master
-        with:
-          ssh: false
-          branch: beta
+          git push -f
