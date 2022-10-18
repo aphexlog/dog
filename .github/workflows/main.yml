@@ -13,4 +13,4 @@ jobs:
         run: |
           git checkout beta
           git branch
-          git reset --hard master
+          git reset --hard beta master
