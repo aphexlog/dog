@@ -7,7 +7,9 @@ jobs:
     name: Reset Beta Branch
     runs-on: ubuntu-latest
     steps:
-      - name: Reset Beat Branch
+      - name: print working directory
         run: |
           pwd
-          ls
+      - name: file listing
+        run: ls
+
