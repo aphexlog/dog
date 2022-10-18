@@ -16,3 +16,4 @@ jobs:
           git branch
           git fetch --all
           git reset --hard origin/master
+          git push
