@@ -18,4 +18,4 @@ jobs:
           git branch
           git fetch --all
           git reset --hard origin/master
-          git push origin/beta
+          git push git@github.com:aphexlog/dog.git
