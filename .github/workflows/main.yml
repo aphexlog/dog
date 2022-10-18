@@ -12,7 +12,7 @@ jobs:
         uses: actions/checkout@v1
         with:
           repository: aphexlog/dog
-          token: $ {{ secrets.GH_TOKEN}}
+          token: ${{ secrets.GH_TOKEN}}
       - name: reset branch to master
         run: |
           git checkout beta
