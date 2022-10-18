@@ -10,3 +10,5 @@ jobs:
       - name: Reset Beat Branch
         run: |
           pwd
+          git status
+          git branch -a
