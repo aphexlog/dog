@@ -12,10 +12,12 @@ jobs:
         uses: actions/checkout@v1
       - name: reset branch to master
         run: |
-          git config --global user.name "aaron.west"
-          git config --global user.email "aphexlog@gmail.com"
           git checkout beta
           git branch
           git fetch --all
           git reset --hard origin/master
-          git push git@github.com:aphexlog/dog.git
+      - name: push to beta
+        uses: ad-m/github-push-action@master
+        with:
+          ssh: true
+          branch: beta
