@@ -1,4 +1,3 @@
-# reset beta branch to master
 name: Reset Beta Branch
 
 
@@ -7,14 +6,7 @@ jobs:
   resetBeta:
     name: Reset Beta Branch
     runs-on: ubuntu-latest
-    # reset beta branch to master
     steps:
-      - name: Checkout Beta
-        uses: actions/checkout@v3
-        with:
-          branch: beta
-          force: 1
-      - run: git checkout beta
-      - run: git reset --hard master
-      - run: git push
-      - run: git branch
+      - name: Reset Beat Branch
+        run: |
+          pwd
