@@ -7,9 +7,8 @@ jobs:
     name: Reset Beta Branch
     runs-on: ubuntu-latest
     steps:
-      - name: print working directory
-        run: |
-          pwd
+      - name: checkout
+        uses: actions/checkout@v1
       - name: file listing
         run: ls
 
