@@ -2,7 +2,8 @@
 name: Reset Beta Branch
 
 
-on: [workflow_dispatch]
+on:
+  workflow_dispatch
 jobs:
   resetBeta:
     name: Reset Beta Branch
@@ -10,12 +11,12 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v1
+        ssh-key: ${{ secrets.DEPLOY_KEY}}
         with:
           repository: aphexlog/dog
       - name: reset branch to master
         run: |
           git checkout beta
           git branch
-          git fetch --all
           git reset --hard origin/master
           git push -f
