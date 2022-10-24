@@ -13,7 +13,6 @@ jobs:
         uses: actions/checkout@v3
         with:
           repository: aphexlog/dog
-          ssh-key: ${{secrets.DEPLOY_KEY}}
           ref: beta
       - name: Get Current Branch Name
         run: git branch
