@@ -9,16 +9,20 @@ jobs:
     name: Reset Beta Branch
     runs-on: ubuntu-latest
     steps:
-      - name: checkout
+      - name: Checkout Beta Branch
         uses: actions/checkout@v3
         with:
           repository: aphexlog/dog
           ssh-key: ${{secrets.DEPLOY_KEY}}
           ref: beta
-      - name: reset branch to master
+      - name: Get Current Branch Name
+        run: git branch
+      - name: Set Git User
         run: |
-          git branch
           git config user.name github-actions
           git config user.email github-actions@github.com
+      - name: reset branch to master
+        run: |
+          git fetch --all
           git reset --hard origin/master
           git push -f
