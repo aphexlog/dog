@@ -10,13 +10,9 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v1
-        with:
-          repository: aphexlog/dog
-          token: ${{ secrets.GH_TOKEN}}
       - name: reset branch to master
         run: |
           git checkout beta
           git branch
-          git fetch --all
           git reset --hard origin/master
           git push -f
