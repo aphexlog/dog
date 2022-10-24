@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
-        uses: actions/checkout@v1
+        uses: actions/checkout@v3
         with:
           repository: aphexlog/dog
           ssh-key: ${{secrets.DEPLOY_KEY}}
@@ -18,5 +18,7 @@ jobs:
         run: |
           git checkout beta
           git branch
+          git config user.name github-actions
+          git config user.email github-actions@github.com
           git reset --hard origin/master
           git push -f
