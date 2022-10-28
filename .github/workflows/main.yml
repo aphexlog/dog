@@ -24,4 +24,5 @@ jobs:
         run: |
           git fetch --all
           git reset --hard origin/master
-          git push -f
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v4
