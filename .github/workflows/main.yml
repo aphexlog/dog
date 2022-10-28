@@ -26,9 +26,6 @@ jobs:
           git reset --hard origin/master
       - id: commit
         uses: pr-mpt/actions-commit-hash@v2
-        with:
-          commit: "${{ github.event.workflow_run.head_sha }}"
-          prefix: "sha-"
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
         with:
