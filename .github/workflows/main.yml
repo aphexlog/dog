@@ -11,14 +11,12 @@ jobs:
       - name: Checkout master
         uses: actions/checkout@v3
         with:
-          repository: aphexlog/dog
           ref: master
       - id: commit
         uses: pr-mpt/actions-commit-hash@v2
       - name: Checkout Beta Branch
         uses: actions/checkout@v3
         with:
-          repository: aphexlog/dog
           ref: beta
       - name: Get Current Branch Name
         run: git branch
