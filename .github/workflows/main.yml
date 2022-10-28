@@ -34,6 +34,4 @@ jobs:
         uses: peter-evans/create-pull-request@v4
         with:
           title: Changes by reset-beta-branch action
-          body: |
-            Reset beta branch back to head of master
-            Master sha: ${{ steps.commit.outputs.short }}
+          body: Reset beta branch back to head of master ${{ steps.commit.outputs.short }}
