@@ -9,6 +9,15 @@ jobs:
     name: Reset Beta Branch
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout master
+        uses: actions/checkout@v3
+        with:
+          repository: aphexlog/dog
+          ref: master
+      - id: commit
+        uses: pr-mpt/actions-commit-hash@v2
+        with:
+          prefix: "sha-"
       - name: Checkout Beta Branch
         uses: actions/checkout@v3
         with:
@@ -24,8 +33,6 @@ jobs:
         run: |
           git fetch --all
           git reset --hard origin/master
-      - id: commit
-        uses: pr-mpt/actions-commit-hash@v2
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
         with:
