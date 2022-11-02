@@ -1,4 +1,6 @@
+
 name: Reset Beta Branch
+
 
 on:
   workflow_dispatch
@@ -7,15 +9,10 @@ jobs:
     name: Reset Beta Branch
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout master
-        uses: actions/checkout@v3
-        with:
-          ref: master
-      - id: commit
-        uses: pr-mpt/actions-commit-hash@v2
       - name: Checkout Beta Branch
         uses: actions/checkout@v3
         with:
+          repository: aphexlog/dog
           ref: beta
       - name: Get Current Branch Name
         run: git branch
@@ -26,13 +23,5 @@ jobs:
       - name: reset branch to master
         run: |
           git fetch --all
-          git reset --soft origin/master
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v4
-        with:
-          title: Changes by reset-beta-branch action
-          body: Reset beta branch back to head of master ${{ steps.commit.outputs.short }}
-          add-paths: .
-          commit-message: resetting beta branch to master
-          branch: reset-beta
-          delete-branch: true
+          git reset --hard origin/master
+          git push -f
