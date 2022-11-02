@@ -26,7 +26,7 @@ jobs:
       - name: reset branch to master
         run: |
           git fetch --all
-          git reset --soft origin/master
+          git reset --hard origin/master
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
         with:
