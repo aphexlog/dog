@@ -36,8 +36,8 @@ jobs:
       #     commit-message: resetting beta branch to master
       #     branch: reset-beta
           # delete-branch: true
-        - name: Sync Branches PR
-          uses: monoku/sync-branches-pr@0.0.1
-          with:
-            SOURCE_BRANCH: "master"
-            TARGET_BRANCH_STARTS_WITH: "beta"
+      - name: Sync Branches PR
+        uses: monoku/sync-branches-pr@0.0.1
+        with:
+          SOURCE_BRANCH: "master"
+          TARGET_BRANCH_STARTS_WITH: "beta"
