@@ -30,10 +30,12 @@ jobs:
       - name: Create Patch, Commit & Push New Branch
         run: |
           git diff beta..origin/master | patch -p1
-          git add .
-          git commit -m'resetting beta branch to head of master'
-          git push --set-upstream origin reset-beta
       - name: Create PR reset-beta -> beta
-        run: |
-          gh pr create -B beta -t "resetting beta branch to head of master" -b "Reset beta branch back to head of master ${{ steps.commit.outputs.short }}"
-          
+        uses: peter-evans/create-pull-request@v4
+        with:
+          title: Changes by reset-beta-branch action
+          body: Reset beta branch back to head of master ${{ steps.commit.outputs.short }}
+          add-paths: .
+          commit-message: resetting beta branch to master
+          branch: reset-beta
+          delete-branch: true
