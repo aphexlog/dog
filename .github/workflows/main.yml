@@ -27,12 +27,17 @@ jobs:
         run: |
           git fetch --all
           git reset --hard origin/master
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v4
-        with:
-          title: Changes by reset-beta-branch action
-          body: Reset beta branch back to head of master ${{ steps.commit.outputs.short }}
-          add-paths: .
-          commit-message: resetting beta branch to master
-          branch: reset-beta
-          delete-branch: true
+      # - name: Create Pull Request
+      #   uses: peter-evans/create-pull-request@v4
+      #   with:
+      #     title: Changes by reset-beta-branch action
+      #     body: Reset beta branch back to head of master ${{ steps.commit.outputs.short }}
+      #     add-paths: .
+      #     commit-message: resetting beta branch to master
+      #     branch: reset-beta
+          # delete-branch: true
+        - name: Sync Branches PR
+          uses: monoku/sync-branches-pr@0.0.1
+          with:
+            SOURCE_BRANCH: "master"
+            TARGET_BRANCH_STARTS_WITH: "beta"
