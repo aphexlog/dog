@@ -26,13 +26,10 @@ jobs:
       - name: reset branch to master
         run: |
           git fetch --all
-          git diff beta..master | patch -p1
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v4
-        with:
-          title: Changes by reset-beta-branch action
-          body: Reset beta branch back to head of master ${{ steps.commit.outputs.short }}
-          commit-message: resetting beta branch to master
-          add-paths: .
-          branch: reset-beta
-          delete-branch: true
+          git checkout -b reset-beta
+          git diff reset-beta..master | patch -p1
+          git add .
+          git commit -m'resetting beta branch to head of master'
+          git push --set-upstream origin reset-beta
+          gh pr create -B beta -t "resetting beta branch to head of master" -b "Reset beta branch back to head of master ${{ steps.commit.outputs.short }}"
+          
