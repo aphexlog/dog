@@ -27,7 +27,7 @@ jobs:
         run: |
           git fetch --all
           git checkout -b reset-beta
-          git diff reset-beta..master | patch -p1
+          git diff beta..master | patch -p1
           git add .
           git commit -m'resetting beta branch to head of master'
           git push --set-upstream origin reset-beta
