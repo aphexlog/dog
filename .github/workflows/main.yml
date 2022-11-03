@@ -1,6 +1,4 @@
-
 name: Reset Beta Branch
-
 
 on:
   workflow_dispatch
@@ -9,10 +7,15 @@ jobs:
     name: Reset Beta Branch
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout master
+        uses: actions/checkout@v3
+        with:
+          ref: master
+      - id: commit
+        uses: pr-mpt/actions-commit-hash@v2
       - name: Checkout Beta Branch
         uses: actions/checkout@v3
         with:
-          repository: aphexlog/dog
           ref: beta
       - name: Get Current Branch Name
         run: git branch
@@ -24,4 +27,9 @@ jobs:
         run: |
           git fetch --all
           git reset --hard origin/master
-          git push -f
+      - name: Opening pull request
+        id: pull
+        uses: tretuna/sync-branches@1.4.0
+        with:
+          FROM_BRANCH: "main"
+          TO_BRANCH: "beta"
