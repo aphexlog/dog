@@ -29,7 +29,7 @@ jobs:
           git checkout -b reset-beta
       - name: Create Patch, Commit & Push New Branch
         run: |
-          git diff origin/master | patch -p1
+          git diff beta..origin/master | patch -p1
           git add .
           git commit -m'resetting beta branch to head of master'
           git push --set-upstream origin reset-beta
