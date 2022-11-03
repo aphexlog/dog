@@ -28,10 +28,12 @@ jobs:
           git fetch --all
           git checkout -b reset-beta
       - name: Create Patch, Commit & Push New Branch
+        run: |
           git diff beta..master | patch -p1
           git add .
           git commit -m'resetting beta branch to head of master'
           git push --set-upstream origin reset-beta
       - name: Create PR reset-beta -> beta
+        run: |
           gh pr create -B beta -t "resetting beta branch to head of master" -b "Reset beta branch back to head of master ${{ steps.commit.outputs.short }}"
           
