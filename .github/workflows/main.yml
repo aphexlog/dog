@@ -33,5 +33,6 @@ jobs:
           title: Changes by reset-beta-branch action
           body: Reset beta branch back to head of master ${{ steps.commit.outputs.short }}
           commit-message: resetting beta branch to master
+          add-paths: .
           branch: reset-beta
           delete-branch: true
