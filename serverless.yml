@@ -1,0 +1,19 @@
+service: dog
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  # cfnRole: 
+
+functions:
+  dog:
+    handler: index.handler
+    role: arn:aws:iam::764114738171:role/AdminRole
+
+resources:
+  Resources:
+    
+
+plugins:
+  - serverless-better-credentials
